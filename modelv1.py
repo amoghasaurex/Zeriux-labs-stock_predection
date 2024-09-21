@@ -1,10 +1,12 @@
-import streamlit as st 
+import streamlit as st
+import numpy as np  # Import numpy
+np.float_ = np.float64  # Override np.float_ with np.float64
+
 from datetime import date
 import yfinance as yf
 from prophet import Prophet
 from prophet.plot import plot_plotly
 from plotly import graph_objs as go
-import matplotlib.pyplot as plt  # Importing matplotlib
 
 START = "2020-01-01"  # Shorten the historical data to avoid outdated trends
 TODAY = date.today().strftime("%Y-%m-%d")
@@ -66,4 +68,4 @@ st.plotly_chart(fig1)
 
 st.write("Forecast componentss")
 fig2 = m.plot_components(forecast)
-st.pyplot(fig2)  # Use st.pyplot instead of st.write
+st.write(fig2)
