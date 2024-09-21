@@ -1,7 +1,8 @@
-streamlit==1.25.0  # Ensure Streamlit is up-to-date
-Cython==3.0.0  # Include a compatible version
-yfinance==0.2.31  # Stable version with Prophet compatibility
-prophet==1.1.4  # The latest version available
-plotly==5.17.0  # Match a stable release
-numpy==1.25.2  # Required for Prophet compatibility
-pandas==2.1.1  # Ensure pandas is up-to-date for data handling
+streamlit==1.25.0
+Cython==3.0.0
+yfinance==0.2.31
+prophet==1.1.4
+plotly==5.17.0
+numpy==1.26.0
+pandas==2.1.1
+setuptools==68.0.0
