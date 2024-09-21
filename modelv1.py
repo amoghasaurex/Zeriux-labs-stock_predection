@@ -25,7 +25,7 @@ def load_data(ticker):
     data.reset_index(inplace=True)
     return data
 
-data_load_state = st.text("Are loading re baba pls wait haan :D")
+data_load_state = st.text("calmmm down it is loading :D")
 data = load_data(selected_stocks)
 data_load_state.text("YOOO data loaded :D")
 
