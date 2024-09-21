@@ -6,3 +6,4 @@ plotly==5.17.0
 numpy==1.26.0
 pandas==2.1.1
 setuptools==68.0.0
+pillow==<version>-cp<python_version>-<system>.whl   # Replace with compatible wheel info
