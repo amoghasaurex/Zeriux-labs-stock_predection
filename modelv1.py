@@ -4,6 +4,7 @@ import yfinance as yf
 from prophet import Prophet
 from prophet.plot import plot_plotly
 from plotly import graph_objs as go
+import matplotlib.pyplot as plt  # Importing matplotlib
 
 START = "2020-01-01"  # Shorten the historical data to avoid outdated trends
 TODAY = date.today().strftime("%Y-%m-%d")
@@ -31,8 +32,8 @@ st.write(data.tail())
 
 def plot_raw_data():
     fig = go.Figure()
-    fig.add_trace(go.Scatter(x = data["Date"], y=data["Open"], name="STOCK OPENNN"))
-    fig.add_trace(go.Scatter(x = data["Date"], y=data["Close"], name="STOCK CLOSEEE"))
+    fig.add_trace(go.Scatter(x=data["Date"], y=data["Open"], name="STOCK OPENNN"))
+    fig.add_trace(go.Scatter(x=data["Date"], y=data["Close"], name="STOCK CLOSEEE"))
     fig.layout.update(title_text="Time dataa", xaxis_rangeslider_visible=True)
     st.plotly_chart(fig)
     
@@ -40,7 +41,7 @@ plot_raw_data()
 
 # Forecasting
 df_train = data[["Date", "Close"]]
-df_train = df_train.rename(columns = {"Date": "ds", "Close": "y"})
+df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
 
 # Highly Tuned Model for Short-Term Accuracy
 m = Prophet(
@@ -65,4 +66,4 @@ st.plotly_chart(fig1)
 
 st.write("Forecast componentss")
 fig2 = m.plot_components(forecast)
-st.write(fig2)
+st.pyplot(fig2)  # Use st.pyplot instead of st.write
